@@ -1,2 +1,0 @@
-# shmock
-Shell Command Mock
