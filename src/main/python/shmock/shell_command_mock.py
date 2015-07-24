@@ -74,7 +74,7 @@ class ShellCommandMock(object):
     def normalize_behavior(self, behavior):
         """Convert various behavior for a single command
 
-        This expand the various shortcut notations into the very verbose
+        This expands the various shortcut notations into the very verbose
         (par1, par2,...): {'stdout': '...', 'stderr': '...', 'returncode': 42}
         notation.
         """
