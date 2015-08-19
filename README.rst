@@ -21,6 +21,7 @@ Configuration
 -------------
 
 To configure which commands should be mocked (and how), use a dictionary like this:
+
   .. code-block:: python
 
     commands_to_mock = {
