@@ -22,7 +22,7 @@ Configuration
 
 To configure which commands should be mocked (and how), use a dictionary like this:
 
-  .. code-block:: python
+.. code-block:: python
 
     commands_to_mock = {
         'saynay': 'Nay sayers say nay.'
@@ -54,7 +54,7 @@ Usage
 
 The ShellCommandMock is intended to be used in "with" contexts as shown below:
 
-  .. code-block:: python
+.. code-block:: python
 
     import os
     from shmock import ShellCommandMock
@@ -73,7 +73,7 @@ Advanced Usage
 
 Sometimes you want to keep the mocked shell commands for further testing/debugging. You can tell shmock to not clean up the mock environment with
 
-  .. code-block:: python
+.. code-block:: python
 
     from shmock import ShellCommandMock
     with ShellCommandMock(commands_to_mock, keep_temp_dir=True):
@@ -92,7 +92,7 @@ Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
 
-    http://www.apache.org/licenses/LICENSE-2.0
+http://www.apache.org/licenses/LICENSE-2.0
 
 Unless required by applicable law or agreed to in writing, software
 distributed under the License is distributed on an "AS IS" BASIS,
