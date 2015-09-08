@@ -3,6 +3,10 @@
    :align: left
    :target: https://travis-ci.org/ImmobilienScout24/shmock
 
+.. image:: https://coveralls.io/repos/ImmobilienScout24/shmock/badge.png?branch=master
+    :alt: Coverage status
+    :target: https://coveralls.io/r/ImmobilienScout24/shmock?branch=master
+
 .. image:: https://badge.fury.io/py/shmock.png
     :alt: Latest PyPI version
     :target: https://badge.fury.io/py/shmock
