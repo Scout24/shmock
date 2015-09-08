@@ -1,3 +1,13 @@
+.. image:: https://travis-ci.org/ImmobilienScout24/shmock.png?branch=master
+   :alt: Travis build status image
+   :align: left
+   :target: https://travis-ci.org/ImmobilienScout24/shmock
+
+.. image:: https://badge.fury.io/py/shmock.png
+    :alt: Latest PyPI version
+    :target: https://badge.fury.io/py/shmock
+
+
 SHell command MOCK (SHMOCK)
 ===========================
 
