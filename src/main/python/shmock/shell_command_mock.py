@@ -1,4 +1,4 @@
-from __future__ import print_function, absolute_import
+from __future__ import print_function, absolute_import, unicode_literals, division
 
 import os
 import shutil
@@ -6,7 +6,7 @@ import stat
 import tempfile
 
 _MOCK_SCRIPT_TEMPLATE = """#!/usr/bin/env python
-from __future__ import print_function
+from __future__ import print_function, absolute_import, unicode_literals, division
 import sys
 
 expected_behavior = {behavior!r}
