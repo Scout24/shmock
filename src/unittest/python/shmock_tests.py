@@ -1,7 +1,7 @@
 from __future__ import print_function, absolute_import, unicode_literals, division
 
 import subprocess
-import unittest
+import unittest2
 
 from mock import patch
 
@@ -16,7 +16,7 @@ def call(args):
 
     return stdout_data, stderr_data, exit_code
 
-class ShmockTest(unittest.TestCase):
+class ShmockTest(unittest2.TestCase):
     def test_empty_config(self):
         commands_to_mock = {}
         with ShellCommandMock(commands_to_mock):
