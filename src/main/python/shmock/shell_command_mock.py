@@ -2,6 +2,7 @@ from __future__ import print_function, absolute_import, unicode_literals, divisi
 
 import os
 import shutil
+import six
 import stat
 import tempfile
 
@@ -56,7 +57,7 @@ class ShellCommandMock(object):
     def _normalize_parameters(params):
         if params is None:
             return None
-        if isinstance(params, basestring):
+        if isinstance(params, six.string_types):
             return (params,)
         return tuple(params)
 
@@ -66,7 +67,7 @@ class ShellCommandMock(object):
             "stdout": "",
             "stderr": "",
             "returncode": 0}
-        if isinstance(reaction, basestring):
+        if isinstance(reaction, six.string_types):
             reaction = {'stdout': reaction}
         default_reaction.update(reaction)
         return default_reaction
@@ -78,7 +79,7 @@ class ShellCommandMock(object):
         (par1, par2,...): {'stdout': '...', 'stderr': '...', 'returncode': 42}
         notation.
         """
-        if isinstance(behavior, basestring):
+        if isinstance(behavior, six.string_types):
             # Use $behavior as stdout for any parameters
             return {None: {'stdout': behavior, 'stderr': "", 'returncode': 0}}
 
