@@ -31,8 +31,8 @@ class ShmockTest(unittest2.TestCase):
                 args.extend(extra_args)
                 out, err, code = call(args)
 
-                self.assertEqual(out, "Nay sayers say nay.\n")
-                self.assertEqual(err, "")
+                self.assertEqual(out, b"Nay sayers say nay.\n")
+                self.assertEqual(err, b"")
                 self.assertEqual(code, 0)
 
 
@@ -46,8 +46,8 @@ class ShmockTest(unittest2.TestCase):
             for command in ('grep', 'bash', 'id'):
                 out, err, code = call([command])
 
-                self.assertEqual(out, "I am fake\n")
-                self.assertEqual(err, "")
+                self.assertEqual(out, b"I am fake\n")
+                self.assertEqual(err, b"")
                 self.assertEqual(code, 0)
 
     def test_dont_replace_unmocked_commands(self):
@@ -55,13 +55,13 @@ class ShmockTest(unittest2.TestCase):
         commands_to_mock = {'foo': 'bar'}
         with ShellCommandMock(commands_to_mock):
             out, err, code = call(['true'])
-            self.assertEqual(out, "")
-            self.assertEqual(err, "")
+            self.assertEqual(out, b"")
+            self.assertEqual(err, b"")
             self.assertEqual(code, 0)
 
             out, err, code = call(['false'])
-            self.assertEqual(out, "")
-            self.assertEqual(err, "")
+            self.assertEqual(out, b"")
+            self.assertEqual(err, b"")
             self.assertNotEqual(code, 0)
 
     def test_no_params(self):
@@ -73,8 +73,8 @@ class ShmockTest(unittest2.TestCase):
         }
         with ShellCommandMock(commands_to_mock):
             out, err, code = call(['foo'])
-            self.assertEqual(out, "I have no parameters\n")
-            self.assertEqual(err, "")
+            self.assertEqual(out, b"I have no parameters\n")
+            self.assertEqual(err, b"")
             self.assertEqual(code, 0)
 
     def test_string_params(self):
@@ -87,18 +87,18 @@ class ShmockTest(unittest2.TestCase):
         }
         with ShellCommandMock(commands_to_mock):
             out, err, code = call(['foo', 'param1'])
-            self.assertEqual(out, "foo\n")
-            self.assertEqual(err, "")
+            self.assertEqual(out, b"foo\n")
+            self.assertEqual(err, b"")
             self.assertEqual(code, 0)
 
             out, err, code = call(['foo', 'param2'])
-            self.assertEqual(out, "bar\n")
-            self.assertEqual(err, "")
+            self.assertEqual(out, b"bar\n")
+            self.assertEqual(err, b"")
             self.assertEqual(code, 0)
 
             out, err, code = call(['foo', 'param3'])
-            self.assertNotEqual(out, "")
-            self.assertNotEqual(err, "")
+            self.assertNotEqual(out, b"")
+            self.assertNotEqual(err, b"")
             self.assertNotEqual(code, 0)
 
     def test_tuple_params(self):
@@ -111,18 +111,18 @@ class ShmockTest(unittest2.TestCase):
         }
         with ShellCommandMock(commands_to_mock):
             out, err, code = call(['foo', 'param1', 'x'])
-            self.assertEqual(out, "foo\n")
-            self.assertEqual(err, "")
+            self.assertEqual(out, b"foo\n")
+            self.assertEqual(err, b"")
             self.assertEqual(code, 0)
 
             out, err, code = call(['foo', 'param2', 'y'])
-            self.assertEqual(out, "bar\n")
-            self.assertEqual(err, "")
+            self.assertEqual(out, b"bar\n")
+            self.assertEqual(err, b"")
             self.assertEqual(code, 0)
 
             out, err, code = call(['foo', 'param3', 'z'])
-            self.assertNotEqual(out, "")
-            self.assertNotEqual(err, "")
+            self.assertNotEqual(out, b"")
+            self.assertNotEqual(err, b"")
             self.assertNotEqual(code, 0)
 
     def test_partial_dict_behavior(self):
@@ -134,18 +134,18 @@ class ShmockTest(unittest2.TestCase):
         }
         with ShellCommandMock(commands_to_mock):
             out, err, code = call(['foo', 'x'])
-            self.assertEqual(out, "xxx\n")
-            self.assertEqual(err, "")
+            self.assertEqual(out, b"xxx\n")
+            self.assertEqual(err, b"")
             self.assertEqual(code, 0)
 
             out, err, code = call(['bar', 'y'])
-            self.assertEqual(out, "")
-            self.assertEqual(err, "yyy\n")
+            self.assertEqual(out, b"")
+            self.assertEqual(err, b"yyy\n")
             self.assertEqual(code, 0)
 
             out, err, code = call(['batz', 'z'])
-            self.assertEqual(out, "")
-            self.assertEqual(err, "")
+            self.assertEqual(out, b"")
+            self.assertEqual(err, b"")
             self.assertEqual(code, 42)
 
     def test_full_dict_behavior(self):
@@ -155,8 +155,8 @@ class ShmockTest(unittest2.TestCase):
 
         with ShellCommandMock(commands_to_mock):
             out, err, code = call(['foo', 'x'])
-            self.assertEqual(out, "xxx\n")
-            self.assertEqual(err, "yyy\n")
+            self.assertEqual(out, b"xxx\n")
+            self.assertEqual(err, b"yyy\n")
             self.assertEqual(code, 42)
 
     def test_default_behavior(self):
@@ -169,18 +169,18 @@ class ShmockTest(unittest2.TestCase):
         }
         with ShellCommandMock(commands_to_mock):
             out, err, code = call(['foo', 'x'])
-            self.assertEqual(out, "hello world\n")
-            self.assertEqual(err, "")
+            self.assertEqual(out, b"hello world\n")
+            self.assertEqual(err, b"")
             self.assertEqual(code, 0)
 
             out, err, code = call(['foo', 'what', 'ever'])
-            self.assertEqual(out, "default\n")
-            self.assertEqual(err, "")
+            self.assertEqual(out, b"default\n")
+            self.assertEqual(err, b"")
             self.assertEqual(code, 0)
 
             out, err, code = call(['foo'])
-            self.assertEqual(out, "default\n")
-            self.assertEqual(err, "")
+            self.assertEqual(out, b"default\n")
+            self.assertEqual(err, b"")
             self.assertEqual(code, 0)
 
     @patch("__builtin__.print")
