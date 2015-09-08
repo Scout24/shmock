@@ -1,5 +1,6 @@
 from __future__ import print_function, absolute_import, unicode_literals, division
 
+import six
 import subprocess
 import unittest2
 
@@ -183,7 +184,7 @@ class ShmockTest(unittest2.TestCase):
             self.assertEqual(err, b"")
             self.assertEqual(code, 0)
 
-    @patch("__builtin__.print")
+    @patch("six.moves.builtins.print")
     def test_keep_temp_dir(self, mock_print):
         """keep_temp_dir=True must preserve the mock files on disc
 
