@@ -15,7 +15,7 @@ description = open("README.rst").read()
 url = 'https://github.com/ImmobilienScout24/shmock'
 authors = [Author('Stefan Nordhausen', "stefan.nordhausen@immobilienscout24.de")]
 license = 'Apache License 2.0'
-default_task = "publish"
+default_task = ['analyze', 'publish']
 
 
 @init
