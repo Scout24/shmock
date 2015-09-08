@@ -31,6 +31,7 @@ if special_behavior['stderr']:
 sys.exit(special_behavior['returncode'])
 """
 
+
 class ShellCommandMock(object):
     def __init__(self, commands_to_mock, keep_temp_dir=False):
         self.commands_to_mock = commands_to_mock
@@ -109,4 +110,3 @@ class ShellCommandMock(object):
                 mock_script.write(
                     _MOCK_SCRIPT_TEMPLATE.format(behavior=behavior))
             os.chmod(mock_script_name, stat.S_IRWXU)
-
