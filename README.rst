@@ -39,7 +39,7 @@ To configure which commands should be mocked (and how), use a dictionary like th
 .. code-block:: python
 
     commands_to_mock = {
-        'saynay': 'Nay sayers say nay.'
+        'saynay': 'Nay sayers say nay.',
         'jonny': {
             (): "walker",
             "foo": "bar",
