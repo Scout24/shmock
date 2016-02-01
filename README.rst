@@ -100,7 +100,7 @@ When output is printed, shmock calls print(), and print() automatically appends 
 License
 -------
 
-Copyright 2015 Immobilienscout24 GmbH
+Copyright 2015 Immobilien Scout GmbH
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
