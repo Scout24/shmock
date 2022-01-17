@@ -11,6 +11,9 @@
     :alt: Latest PyPI version
     :target: https://badge.fury.io/py/shmock
 
+=======================================================
+This project is DEPRECATED and not any longer supported
+=======================================================
 
 SHell command MOCK (SHMOCK)
 ===========================
